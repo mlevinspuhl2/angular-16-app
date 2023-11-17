@@ -1,0 +1,51 @@
+<h2 class="text-center mt-5 mb-3">Edit Product</h2>
+<div class="card">
+    <div class="card-header">
+        <a routerLink="/product/index"
+            class="btn btn-outline-info float-right"
+            >View All Projects
+        </a>
+    </div>
+    <div class="card-body">
+      <form>
+        <div class="form-group">
+          <label html="name">Name</label>
+          <input [(ngModel)]="product.name"
+                 type="text"
+                 class="form-control"
+                 id="name"
+                 name="name" />
+        </div>
+        <div class="form-group">
+          <label html="description">Description</label>
+          <input [(ngModel)]="product.description"
+                 type="text"
+                 class="form-control"
+                 id="description"
+                 name="description" />
+        </div>
+        <div class="form-group">
+          <label html="name">Price</label>
+          <input [(ngModel)]="product.price"
+                 type="number"
+                 class="form-control"
+                 id="price"
+                 name="price" />
+        </div>
+        <div class="form-group">
+          <label html="name">Color</label>
+          <input [(ngModel)]="product.color"
+                 type="text"
+                 class="form-control"
+                 id="color"
+                 name="color" />
+        </div>
+        <button [disabled]="isSaving"
+                (click)="handleSave()"
+                type="button"
+                class="btn btn-outline-primary mt-3">
+          Save Product
+        </button>
+      </form>
+    </div>
+</div>

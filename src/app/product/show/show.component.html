@@ -1,0 +1,21 @@
+<h2 class="text-center mt-5 mb-3">Show Product</h2>
+<div class="card">
+    <div class="card-header">
+        <a routerLink="/product/index"
+            class="btn btn-outline-info float-right"
+            >View All Products
+        </a>
+    </div>
+    <div class="card-body">
+      <b className="text-muted">Id:</b>
+      <p>{{product.id}}</p>
+      <b className="text-muted">Name:</b>
+      <p>{{product.name}}</p>
+      <b className="text-muted">Description:</b>
+      <p>{{product.description}}</p>
+      <b className="text-muted">Price:</b>
+      <p>{{product.price}}</p>
+      <b className="text-muted">Color:</b>
+      <p>{{product.color}}</p>
+    </div>
+</div>
