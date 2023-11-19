@@ -2,15 +2,14 @@
   "ExpandedNodes": [
     "",
     "\\app",
-    "\\app\\Category",
+    "\\app\\category",
+    "\\app\\category\\edit",
+    "\\app\\category\\index",
+    "\\app\\category\\show",
     "\\app\\product",
-    "\\app\\product\\create",
     "\\app\\product\\edit",
     "\\app\\product\\index",
-    "\\app\\product\\show",
-    "\\assets",
-    "\\environments"
+    "\\app\\product\\show"
   ],
-  "SelectedNode": "\\app\\Category",
   "PreviewInSolutionExplorer": false
 }

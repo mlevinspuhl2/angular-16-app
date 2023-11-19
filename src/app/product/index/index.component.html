@@ -39,40 +39,4 @@
         </tbody>
       </table>
     </div>
-    <h2 class="text-center mt-5 mb-3">Category</h2>
-    <div class="card">
-      <div class="card-header">
-        <a routerLink="/category/create"
-           class="btn btn-outline-primary float-right">
-          Create New Category
-        </a>
-      </div>
-      <div class="card-body">
-
-        <table class="table table-bordered">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Description</th>
-              <th width="240px">Action</th>
-            </tr>
-          </thead>
-          <tbody>
-
-            <tr *ngFor="let category of categories">
-              <td>{{ category.name }}</td>
-              <td>{{ category.description }}</td>
-              <td>
-                <a [routerLink]="['/category', category.id, 'show']" class="btn btn-outline-info mx-1">Show</a>
-                <a [routerLink]="['/category', category.id, 'edit']" class="btn btn-outline-success mx-1">Edit</a>
-                <button (click)="handleDelete(category.id)"
-                        class="btn btn-outline-danger mx-1">
-                  Delete
-                </button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
   </div>

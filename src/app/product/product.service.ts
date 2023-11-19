@@ -29,7 +29,7 @@ export class ProductService {
     return axios.post('/api/Product', payload)
   }
 
-  show (id:number): Promise<any>{
+  show (id:string): Promise<any>{
     return axios.get('/api/Product/' + id)
   }
 

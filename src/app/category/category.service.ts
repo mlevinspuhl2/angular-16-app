@@ -12,7 +12,7 @@ export class CategoryService {
     return axios.get('/api/Category')
   }
 
-  delete (id:number): Promise<any>{
+  delete (id:string): Promise<any>{
     return axios.delete('/api/Category/' + id)
   }
 
@@ -25,7 +25,7 @@ export class CategoryService {
     return axios.post('/api/Category', payload)
   }
 
-  show (id:number): Promise<any>{
+  show (id:string): Promise<any>{
     return axios.get('/api/Category/' + id)
   }
 

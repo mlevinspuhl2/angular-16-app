@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductService } from '../product.service';
-import { Product } from '../product';
-/*import { CategoryService } from '../../category/category.service';*/
-/*import { Category } from '../../category/category';*/
+import { CategoryService } from '../category.service';
+import { Category } from '../category';
 import Swal from 'sweetalert2'
 
 @Component({
@@ -10,28 +8,21 @@ import Swal from 'sweetalert2'
   templateUrl: './index.component.html',
   styleUrls: ['./index.component.css']
 })
-export class IndexComponent implements OnInit{
+export class IndexComponentCategory implements OnInit{
 
-  projects: Product[] = [];
-  //categories: Category[] = [];
+  categories: Category[] = [];
 
-  constructor(public ProductService: ProductService/*, public CategoryService: CategoryService*/) { }
+  constructor(public CategoryService: CategoryService) { }
 
   ngOnInit(): void {
-    this.fetchProductList();
-    //this.fetchCategoryList();
+    this.fetchCategoryList();
   }
 
-  fetchProductList(){
-    this.ProductService.getAll().then(({data}) => {
-      this.projects = data;
-    }).catch(error => {return error})
+  fetchCategoryList() {
+    this.CategoryService.getAll().then(({ data }) => {
+      this.categories = data;
+    }).catch(error => { return error })
   }
-  //fetchCategoryList() {
-  //  this.CategoryService.getAll().then(({ data }) => {
-  //    this.categories = data;
-  //  }).catch(error => { return error })
-  //}
 
   handleDelete(id:string){
     Swal.fire({
@@ -44,7 +35,7 @@ export class IndexComponent implements OnInit{
       confirmButtonText: 'Yes, delete it!'
     }).then(result =>{
       if (result.isConfirmed) {
-        this.ProductService.delete(id)
+        this.CategoryService.delete(id)
         .then( response => {
           Swal.fire({
             icon: 'success',
@@ -52,7 +43,7 @@ export class IndexComponent implements OnInit{
             showConfirmButton: false,
             timer: 1500
           })
-          this.fetchProductList()
+          this.fetchCategoryList()
           return response
         }).catch(error => {
           Swal.fire({
