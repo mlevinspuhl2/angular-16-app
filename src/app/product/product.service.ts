@@ -23,7 +23,8 @@ export class ProductService {
       name: data.name,
       description: data.description,
       price: data.price,
-      color: data.color
+      color: data.color,
+      category: data.category.id
     }
 
     return axios.post('/api/Product', payload)
@@ -38,7 +39,9 @@ export class ProductService {
       name: data.name,
       description: data.description,
       price: data.price,
-      color: data.color
+      color: data.color,
+      categoryId: data.category.id
+
     }
 
     return axios.put('/api/Product/' + data.id, payload)

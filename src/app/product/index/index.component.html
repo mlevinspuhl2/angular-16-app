@@ -16,6 +16,7 @@
             <th>Description</th>
             <th>Price</th>
             <th>Color</th>
+            <th>Category</th>
             <th width="240px">Action</th>
           </tr>
         </thead>
@@ -26,6 +27,7 @@
             <td>{{ product.description }}</td>
             <td>{{ product.price }}</td>
             <td>{{ product.color }}</td>
+            <td>{{ product.category.name}}</td>
             <td>
               <a [routerLink]="['/product', product.id, 'show']" class="btn btn-outline-info mx-1">Show</a>
               <a [routerLink]="['/product', product.id, 'edit']" class="btn btn-outline-success mx-1">Edit</a>

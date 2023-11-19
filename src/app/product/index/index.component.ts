@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../product.service';
 import { Product } from '../product';
-/*import { CategoryService } from '../../category/category.service';*/
-/*import { Category } from '../../category/category';*/
+import { CategoryService } from '../../category/category.service';
+import { Category } from '../../category/category';
 import Swal from 'sweetalert2'
 
 @Component({
@@ -13,13 +13,13 @@ import Swal from 'sweetalert2'
 export class IndexComponent implements OnInit{
 
   projects: Product[] = [];
-  //categories: Category[] = [];
+  categories: Category[] = [];
 
-  constructor(public ProductService: ProductService/*, public CategoryService: CategoryService*/) { }
+  constructor(public ProductService: ProductService, public CategoryService: CategoryService) { }
 
   ngOnInit(): void {
     this.fetchProductList();
-    //this.fetchCategoryList();
+    this.fetchCategoryList();
   }
 
   fetchProductList(){
@@ -27,11 +27,11 @@ export class IndexComponent implements OnInit{
       this.projects = data;
     }).catch(error => {return error})
   }
-  //fetchCategoryList() {
-  //  this.CategoryService.getAll().then(({ data }) => {
-  //    this.categories = data;
-  //  }).catch(error => { return error })
-  //}
+  fetchCategoryList() {
+    this.CategoryService.getAll().then(({ data }) => {
+      this.categories = data;
+    }).catch(error => { return error })
+  }
 
   handleDelete(id:string){
     Swal.fire({
