@@ -19,10 +19,9 @@ import { CurrencyMaskModule } from "ng2-currency-mask";
   ],
   imports: [
     CommonModule,
-    ProductRoutingModule,
-    
     FormsModule,
     ReactiveFormsModule,
+    ProductRoutingModule,
     CurrencyMaskModule
   ]
 })

@@ -8,7 +8,7 @@ import { Category } from '../category';
   templateUrl: './show.component.html',
   styleUrls: ['./show.component.css']
 })
-export class ShowComponentCategory implements OnInit {
+export class ShowComponent implements OnInit {
   category: Category
 
   constructor(public CategoryService: CategoryService, private route: ActivatedRoute) {

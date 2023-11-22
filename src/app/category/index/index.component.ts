@@ -8,7 +8,7 @@ import Swal from 'sweetalert2'
   templateUrl: './index.component.html',
   styleUrls: ['./index.component.css']
 })
-export class IndexComponentCategory implements OnInit{
+export class IndexComponent implements OnInit{
 
   categories: Category[] = [];
 

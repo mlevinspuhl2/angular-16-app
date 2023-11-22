@@ -9,7 +9,7 @@ import { Category } from '../category';
   templateUrl: './edit.component.html',
   styleUrls: ['./edit.component.css']
 })
-export class EditComponentCategory implements OnInit {
+export class EditComponent implements OnInit {
   category: Category
   isSaving: boolean = false
 

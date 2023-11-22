@@ -7,7 +7,7 @@ import Swal from 'sweetalert2'
   templateUrl: './create.component.html',
   styleUrls: ['./create.component.css']
 })
-export class CreateComponentCategory {
+export class CreateComponent {
   name: string = ''
   description: string = ''
   isSaving: boolean = false

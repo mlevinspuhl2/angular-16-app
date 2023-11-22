@@ -1,19 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { IndexComponentCategory } from '../category/index/index.component';
-import { CreateComponentCategory } from '../category/create/create.component';
-import { EditComponentCategory } from '../category/edit/edit.component';
-import { ShowComponentCategory } from '../category/show/show.component';
 import { CategoryRoutingModule } from '../category/category-routing.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { IndexComponent } from '../category/index/index.component';
+import { CreateComponent } from '../category/create/create.component';
+import { EditComponent } from '../category/edit/edit.component';
+import { ShowComponent } from '../category/show/show.component';
+
 
 
 @NgModule({
   declarations: [
-    IndexComponentCategory,
-    CreateComponentCategory,
-    EditComponentCategory,
-    ShowComponentCategory
+    IndexComponent,
+    CreateComponent,
+    EditComponent,
+    ShowComponent
 
   ],
   imports: [
