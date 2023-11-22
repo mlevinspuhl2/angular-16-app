@@ -24,7 +24,7 @@ export class ProductService {
       description: data.description,
       price: data.price,
       color: data.color,
-      category: data.category.id
+      categoryId: data.categoryId
     }
 
     return axios.post('/api/Product', payload)

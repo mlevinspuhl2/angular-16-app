@@ -12,11 +12,11 @@ export class CreateComponentCategory {
   description: string = ''
   isSaving: boolean = false
 
-  constructor(public ProductService: CategoryService) { }
+  constructor(public CategoryService: CategoryService) { }
 
   handleSave() {
     this.isSaving = true
-    this.ProductService.create({ name: this.name, description: this.description })
+    this.CategoryService.create({ name: this.name, description: this.description })
       .then(({ data }) => {
         this.isSaving = false
         Swal.fire({

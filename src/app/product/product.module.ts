@@ -11,6 +11,7 @@ import { CreateComponentCategory } from '../category/create/create.component';
 import { EditComponentCategory } from '../category/edit/edit.component';
 import { ShowComponentCategory } from '../category/show/show.component';
 import { CategoryRoutingModule } from '../category/category-routing.module';
+import { CurrencyMaskModule } from "ng2-currency-mask";
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { CategoryRoutingModule } from '../category/category-routing.module';
     ProductRoutingModule,
     CategoryRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CurrencyMaskModule
   ]
 })
 export class ProductModule { }
