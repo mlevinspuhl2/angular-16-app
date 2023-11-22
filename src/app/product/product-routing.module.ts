@@ -6,8 +6,8 @@ import { EditComponent } from './edit/edit.component';
 import { ShowComponent } from './show/show.component';
 
 const routes: Routes = [
-  //{ path: '', redirectTo: 'product/index', pathMatch: 'full'},
-  //{ path: 'product', redirectTo: 'product/index', pathMatch: 'full'},
+  { path: '', redirectTo: 'product/index', pathMatch: 'full'},
+  { path: 'product', redirectTo: 'product/index', pathMatch: 'full'},
   { path: 'product/index', component: IndexComponent },
   { path: 'product/create', component: CreateComponent },
   { path: 'product/:id/edit', component: EditComponent },
