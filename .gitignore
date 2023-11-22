@@ -44,3 +44,4 @@ Thumbs.db
 /src/.vs/slnx.sqlite
 /src/.vs/VSWorkspaceState.json
 /src/.vs/src/FileContentIndex
+/src/.vs/src/config/applicationhost.config
