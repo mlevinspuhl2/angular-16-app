@@ -11,35 +11,43 @@ export class CreateComponent {
   name: string = ''
   description: string = ''
   isSaving: boolean = false
-
   constructor(public CategoryService: CategoryService) { }
 
   handleSave() {
     this.isSaving = true
-    this.CategoryService.create({ name: this.name, description: this.description })
-      .then(({ data }) => {
-        this.isSaving = false
-        Swal.fire({
-          icon: 'success',
-          title: 'Product saved successfully!',
-          showConfirmButton: false,
-          timer: 1500
-        })
-        this.name = ""
-        this.description = ""
-        return data
-
-      }).catch(error => {
-        this.isSaving = false
-        Swal.fire({
-          icon: 'error',
-          title: 'An Error Occured!',
-          showConfirmButton: false,
-          timer: 1500
-        })
-        return error
+    if (this.name.trim() == '') {
+      Swal.fire({
+        icon: 'error',
+        title: 'Name is required',
+        showConfirmButton: false,
+        timer: 1500
       })
+      this.isSaving = false
+
+    } else {
+      this.CategoryService.create({ name: this.name, description: this.description })
+        .then(({ data }) => {
+          this.isSaving = false
+          Swal.fire({
+            icon: 'success',
+            title: 'Product saved successfully!',
+            showConfirmButton: false,
+            timer: 1500
+          })
+          this.name = ""
+          this.description = ""
+          return data
+
+        }).catch(error => {
+          this.isSaving = false
+          Swal.fire({
+            icon: 'error',
+            title: 'An Error Occured!',
+            showConfirmButton: false,
+            timer: 1500
+          })
+          return error
+        })
+    }
   }
-
-
 }
