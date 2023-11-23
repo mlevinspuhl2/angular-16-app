@@ -8,6 +8,7 @@ import { EditComponent } from './edit/edit.component';
 import { ShowComponent } from './show/show.component';
 import { NgMaterialModule } from '../ng-material/ng-material.module';
 import { CurrencyMaskModule } from "ng2-currency-mask";
+import { NgxTrimDirectiveModule } from 'ngx-trim-directive';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { CurrencyMaskModule } from "ng2-currency-mask";
     ReactiveFormsModule,
     NgMaterialModule,
     ProductRoutingModule,
+    NgxTrimDirectiveModule,
     CurrencyMaskModule
   ]
 })

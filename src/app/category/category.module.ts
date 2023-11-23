@@ -6,6 +6,7 @@ import { IndexComponent } from '../category/index/index.component';
 import { CreateComponent } from '../category/create/create.component';
 import { EditComponent } from '../category/edit/edit.component';
 import { ShowComponent } from '../category/show/show.component';
+import { NgxTrimDirectiveModule } from 'ngx-trim-directive';
 
 
 
@@ -21,6 +22,7 @@ import { ShowComponent } from '../category/show/show.component';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    NgxTrimDirectiveModule,
     CategoryRoutingModule
   ]
 })

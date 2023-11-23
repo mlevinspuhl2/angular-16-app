@@ -8,6 +8,7 @@ import { Category } from '../../category/category';
 import { Router } from '@angular/router';
 
 import { NameValidator } from '../../util/name.validator';
+/*import { NumberValidator } from '../../util/number.validator';*/
 
 @Component({
   selector: 'app-create',
@@ -31,8 +32,8 @@ export class CreateComponent implements OnInit {
     this.fetchCategoryList();
     this.form = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(1), NameValidator.cannotContainSpace]],
-      description: [null],
-      price: [null],
+      description: ['', [Validators.required, Validators.minLength(1), NameValidator.cannotContainSpace]],
+      price: [null, NameValidator.cannotContainSpace],
       color: [null],
       category: [null]
     });
@@ -47,7 +48,8 @@ export class CreateComponent implements OnInit {
   }
   handleSave(form: any){
     this.isSaving = true
-    this.ProductService.create({ name: form.name, description: form.description, price: form.price, color: form.color, categoryId: form.categoryId })
+    if (form.value.price == null) form.value.price = 0;
+    this.ProductService.create({ name: form.value.name, description: form.value.description, price: form.value.price, color: form.value.color, categoryId: form.value.categoryId })
     .then(({data}) => {
       this.isSaving = false
       Swal.fire({

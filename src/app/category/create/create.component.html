@@ -7,31 +7,28 @@
     </a>
   </div>
   <div class="card-body">
-    <form>
+    <form [formGroup]="form" (ngSubmit)="handleSave(form)">
       <div class="form-group">
         <label html="name">Name</label>
-        <input [(ngModel)]="name"
-               type="text"
-               class="form-control"
-               id="name"
-               name="name" />
+        <input class="form-control" matInput maxlength="100" formControlName="name" #nameInput trim="blur">
+        <div [ngStyle]="{'visibility': form.value.name.length == 0 ? 'visible' : 'hidden', 'color':'red'}">
+          Please enter valid Name
+        </div>
       </div>
       <div class="form-group">
         <label html="description">Description</label>
-        <input [(ngModel)]="description"
-               type="text"
-               class="form-control"
-               id="description"
-               name="description" />
+        <input class="form-control" matInput maxlength="100" formControlName="description" #descriptionInput trim="blur">
+        <div [ngStyle]="{'visibility': form.value.description.length == 0 ? 'visible' : 'hidden', 'color':'red'}">
+          Please enter valid Description
+        </div>
       </div>
-      <div class="form-group">
-      </div>
-      <button [disabled]="isSaving"
-              (click)="handleSave()"
-              type="button"
-              class="btn btn-outline-primary mt-3">
-        Save Category
-      </button>
+      <!--<button [disabled]="isSaving"
+          (click)="handleSave()"
+          type="button"
+          class="btn btn-outline-primary mt-3">
+    Save Category
+  </button>-->
+      <button class="btn btn-outline-primary mt-3" type="submit" [disabled]="!form.valid || isSaving">Save Category</button>
     </form>
   </div>
 </div>

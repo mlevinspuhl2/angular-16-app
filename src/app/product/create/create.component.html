@@ -1,49 +1,53 @@
 <h2 class="text-center mt-5 mb-3">Create New Product</h2>
 <div class="card">
-    <div class="card-header">
-        <a routerLink="/product/index"
-            class="btn btn-outline-info float-right"
-            >View All Projects
-        </a>
-    </div>
-    <div class="card-body">
-      <form [formGroup]="form" (ngSubmit)="saveDetails(form)">
-        <div class="form-group">
-          <label html="name">Name</label>
-          <input class="form-control" matInput maxlength="100" formControlName="name" #nameInput>
-
-            <div [ngStyle]="{'visibility': !form.valid ? 'visible' : 'hidden', 'color':'red'}">
-              Please enter valid name
-            </div>
-
+  <div class="card-header">
+    <a routerLink="/product/index"
+       class="btn btn-outline-info float-right">
+      View All Projects
+    </a>
+  </div>
+  <div class="card-body">
+    <form [formGroup]="form" (ngSubmit)="handleSave(form)">
+      <div class="form-group">
+        <label html="name">Name</label>
+        <input class="form-control" matInput maxlength="100" formControlName="name" name="name" #nameInput trim="blur">
+        <div [ngStyle]="{'visibility': form.value.name.length == 0 ? 'visible' : 'hidden', 'color':'red'}">
+          Please enter valid Name
         </div>
-        <div class="form-group">
-          <label html="description">Description</label>
-          <input class="form-control" matInput maxlength="100" formControlName="description" #descriptionInput>
+      </div>
+      <div class="form-group">
+        <label html="description">Description</label>
+        <input class="form-control" matInput maxlength="100" formControlName="description" #descriptionInput trim="blur">
+        <div [ngStyle]="{'visibility': form.value.description.length == 0 ? 'visible' : 'hidden', 'color':'red'}">
+          Please enter valid Description
         </div>
-        <div class="form-group">
-          <label html="price">Price</label>
-          <input class="form-control" matInput formControlName="price" #priceInput currencyMask >
+      </div>
+      <div class="form-group">
+        <label html="price">Price</label>
+        <input class="form-control" matInput formControlName="price" #priceInput currencyMask>
+        <div [ngStyle]="{'visibility': form.value.price==null || form.value.price==0 ? 'visible' : 'hidden', 'color':'red'}">
+          Please enter valid Price
         </div>
-        <div class="form-group">
-          <label html="name">Color</label>
-          <input class="form-control" matInput formControlName="color" #colorInput>
-        </div>
-        <div class="form-group">
-          <label html="name">Category</label>
-          <select id="category" name="category" formControlName="category" class="form-control chosen-select" #categoryInput>
-            <option *ngFor="let cat of categories" [ngValue]="cat.id">
-              {{cat.name}}
-            </option>
-          </select>
-        </div>
-        <!--<button [disabled]="isSaving"
+      </div>
+      <div class="form-group">
+        <label html="name">Color</label>
+        <input class="form-control" matInput formControlName="color" #colorInput>
+      </div>
+      <div class="form-group">
+        <label html="name">Category</label>
+        <select id="category" name="category" formControlName="category" class="form-control chosen-select" #categoryInput>
+          <option *ngFor="let cat of categories" [ngValue]="cat.id">
+            {{cat.name}}
+          </option>
+        </select>
+      </div>
+      <!--<button [disabled]="isSaving"
     (click)="handleSave()"
     type="button"
     class="btn btn-outline-primary mt-3">
       Save Product
     </button>-->
-        <button class="btn btn-outline-primary mt-3" type="submit" [disabled]="!form.valid || isSaving">Save Product</button>
-      </form>
-    </div>
+      <button class="btn btn-outline-primary mt-3" type="submit" [disabled]="!form.valid || isSaving">Save Product</button>
+    </form>
+  </div>
 </div>
