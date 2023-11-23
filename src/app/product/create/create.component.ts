@@ -1,16 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+
 import { ProductService } from '../product.service';
 import { CategoryService } from '../../category/category.service';
 import Swal from 'sweetalert2'
 import { Category } from '../../category/category';
 import { Router } from '@angular/router';
 
+import { NameValidator } from '../../util/name.validator';
+
 @Component({
   selector: 'app-create',
   templateUrl: './create.component.html',
   styleUrls: ['./create.component.css']
 })
-export class CreateComponent {
+export class CreateComponent implements OnInit {
+  form: FormGroup = new FormGroup({});
   name:string = ''
   description: string = ''
   price: number = 0
@@ -19,20 +24,30 @@ export class CreateComponent {
   categoryId = ''
   categories: Category[] = [];
 
-  constructor(public ProductService: ProductService, public CategoryService: CategoryService, private _router: Router) {
+  constructor(private fb: FormBuilder, public ProductService: ProductService, public CategoryService: CategoryService, private _router: Router) {
 
   }
   ngOnInit(): void {
     this.fetchCategoryList();
+    this.form = this.fb.group({
+      name: ['', [Validators.required, Validators.minLength(1), NameValidator.cannotContainSpace]],
+      description: [null],
+      price: [null],
+      color: [null],
+      category: [null]
+    });
   }
   fetchCategoryList() {
     this.CategoryService.getAll().then(({ data }) => {
       this.categories = data;
     }).catch(error => { return error })
   }
-  handleSave(){
+  saveDetails(form: any) {
+    alert('SUCCESS!! :-)\n\n' + JSON.stringify(form.value, null, 4));
+  }
+  handleSave(form: any){
     this.isSaving = true
-    this.ProductService.create({ name: this.name, description: this.description, price: this.price, color: this.color, categoryId: this.categoryId })
+    this.ProductService.create({ name: form.name, description: form.description, price: form.price, color: form.color, categoryId: form.categoryId })
     .then(({data}) => {
       this.isSaving = false
       Swal.fire({

@@ -6,7 +6,7 @@ import { IndexComponent } from './index/index.component';
 import { CreateComponent } from './create/create.component';
 import { EditComponent } from './edit/edit.component';
 import { ShowComponent } from './show/show.component';
-
+import { NgMaterialModule } from '../ng-material/ng-material.module';
 import { CurrencyMaskModule } from "ng2-currency-mask";
 
 
@@ -21,6 +21,7 @@ import { CurrencyMaskModule } from "ng2-currency-mask";
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    NgMaterialModule,
     ProductRoutingModule,
     CurrencyMaskModule
   ]
