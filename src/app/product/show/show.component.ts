@@ -18,7 +18,8 @@ export class ShowComponent implements OnInit {
       description: '',
       price: 0,
       color: '',
-      category: { id: '', name: '', description: '' }
+      category: { id: '', name: '', description: '' },
+      categoryId: ''
     }
   }
 

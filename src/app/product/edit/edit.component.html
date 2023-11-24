@@ -7,54 +7,38 @@
     </a>
   </div>
   <div class="card-body">
-    <form>
+    <form [formGroup]="form" (ngSubmit)="handleSave(form)">
       <div class="form-group">
         <label html="name">Name</label>
-        <input [(ngModel)]="product.name"
-               type="text"
-               class="form-control"
-               id="name"
-               name="name" />
+        <input class="form-control" matInput maxlength="100" formControlName="name" name="name" #nameInput trim="blur" [ngClass]="{ 'is-invalid': form.value.name==null || form.value.name.length == 0}">
       </div>
       <div class="form-group">
         <label html="description">Description</label>
-        <input [(ngModel)]="product.description"
-               type="text"
-               class="form-control"
-               id="description"
-               name="description" />
+        <input class="form-control" matInput maxlength="100" formControlName="description" #descriptionInput trim="blur" [ngClass]="{ 'is-invalid': form.value.description==null || form.value.description.length == 0}">
       </div>
       <div class="form-group">
-        <label html="name">Price</label>
-        <input [(ngModel)]="product.price"
-               type="number"
-               class="form-control"
-               id="price"
-               name="price" />
+        <label html="price">Price</label>
+        <input class="form-control" matInput formControlName="price" #priceInput currencyMask [ngClass]="{ 'is-invalid': form.value.price==null || form.value.price==0}">
       </div>
       <div class="form-group">
         <label html="name">Color</label>
-        <input [(ngModel)]="product.color"
-               type="text"
-               class="form-control"
-               id="color"
-               name="color" />
+        <input class="form-control" matInput formControlName="color" #colorInput>
       </div>
       <div class="form-group">
         <label html="name">Category</label>
-        <select id="category" name ="category" [(ngModel)]="product.category.id" class="form-control chosen-select">
-          <option [ngValue]="null">No Category</option>
+        <select id="category" name="category" formControlName="categoryId" class="form-control chosen-select" #categoryInput>
           <option *ngFor="let cat of categories" [ngValue]="cat.id">
             {{cat.name}}
           </option>
         </select>
       </div>
-      <button [disabled]="isSaving"
-              (click)="handleSave()"
-              type="button"
-              class="btn btn-outline-primary mt-3">
-        Save Product
-      </button>
+      <!--<button [disabled]="isSaving"
+    (click)="handleSave()"
+    type="button"
+    class="btn btn-outline-primary mt-3">
+      Save Product
+    </button>-->
+      <button class="btn btn-outline-primary mt-3" type="submit" [disabled]="!form.valid || isSaving">Save Product</button>
     </form>
   </div>
 </div>

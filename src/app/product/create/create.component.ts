@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-
 import { ProductService } from '../product.service';
 import { CategoryService } from '../../category/category.service';
 import Swal from 'sweetalert2'

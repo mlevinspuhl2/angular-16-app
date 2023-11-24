@@ -40,7 +40,7 @@ export class ProductService {
       description: data.description,
       price: data.price,
       color: data.color,
-      categoryId: data.category.id
+      categoryId: data.categoryId
 
     }
 

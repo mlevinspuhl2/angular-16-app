@@ -6,5 +6,6 @@ export interface Product {
   description: string;
   price: number;
   color: string;
-  category: Category
+  category: Category;
+  categoryId: string;
 }
